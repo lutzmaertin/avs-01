@@ -1,2 +1,175 @@
-<br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><h1>Webdesign</h1>
+<div class="wd-container">
+    <div class="wd-text-gross">Webdesign & Hompage</div>
+    <div class="wd-text-klein">
+        <p>Erleben Sie, wie einfach es sein kann, mit einer tollen Website Kunden und Bewerber für Ihr Unternehmen zu gewinnen.
+            Hinter jedem erfolgreichen Produkt steckt eine Menge Arbeit, egal in welchem Geschäftsbereich.
+            Die Entwicklung eines erfolgreichen Produkts erfordert nicht nur eine gute Intuition,
+            sondern auch Recherche, Planung, Reflexion, geschäftliche Profilierung und vieles mehr.</p>
+    </div>
+    
+
+    <div id="wd-foto-container">
+        <canvas id="myCanvas"></canvas>
+    </div>
+    
+    <script src="./assets/gl-slideshow.js"></script>
+    <script>
+    const mediaQueryList = window.matchMedia( '(max-width: 680px)' );
+    const container = document.getElementById( 'container' );
+    const srcListL = [ './img/wd01.jpg',  './img/wd02.jpg',  './img/wd03.jpg',  './img/wd04.jpg', './img/wd05.jpg' ];
+    const srcListS = [ './img/wd01-k.jpg', './img/wd02-k.jpg', './img/wd03-k.jpg', './img/wd04-k.jpg', './img/wd05-k.jpg'];
+    
+    const srcList = mediaQueryList.matches ? srcListS : srcListL;
+    
+    loadImgList( srcList ).then( ( imgList ) => {
+    
+        const slideshow = new GLSlideshow(
+            mediaQueryList.matches ? srcListS : srcListL,
+            {
+                canvas: document.getElementById( 'myCanvas' ),
+                width: mediaQueryList.matches ? 375 : 1024,
+                height: mediaQueryList.matches ? 300 : 576,
+                effect: 'crossZoom',
+            }
+        );
+    
+        mediaQueryList.addEventListener( 'change', () => {
+    
+            const isSmallScreen = mediaQueryList.matches;
+            const srcList = mediaQueryList.matches ? srcListS : srcListL;
+            const width = isSmallScreen ? 375 : 1024;
+            const height = isSmallScreen ? 300 : 576;
+    
+            loadImgList( srcList ).then( ( imgList ) => {
+    
+                slideshow.replace( imgList );
+                slideshow.setSize( width, height );
+                slideshow.updateAspect();
+    
+            } );
+    
+        } );
+    
+    } );
+    
+    
+    function loadImgList( srcList ) {
+    
+        return new Promise( ( resolve ) => {
+    
+            Promise.all( srcList.map( ( src ) => loadImg( src ) ) ).then( ( imgList ) => {
+    
+                resolve( imgList );
+    
+            } );
+    
+        } );
+    
+    }
+    
+    
+    function loadImg( src ) {
+    
+        return new Promise( ( resolve ) => {
+    
+            const $img = new Image();
+            const onLoad = () => {
+    
+                $img.removeEventListener( 'load', onLoad );
+                resolve( $img );
+    
+            };
+            $img.addEventListener( 'load', onLoad );
+            $img.src = src;
+    
+        } );
+    
+    }
+    </script>
+    
+    <script src="./assets/gl-slideshow.js"></script>
+    <script>
+    const mediaQueryList = window.matchMedia( '(max-width: 680px)' );
+    const container = document.getElementById( 'container' );
+    const srcListL = [ './img/wd01.jpg',  './img/wd02.jpg',  './img/wd03.jpg',  './img/wd04.jpg', './img/wd05.jpg' ];
+    const srcListS = [ './img/wd01-k.jpg', './img/wd02-k.jpg', './img/wd03-k.jpg', './img/wd04-k.jpg', './img/wd05-k.jpg'];
+    
+    const srcList = mediaQueryList.matches ? srcListS : srcListL;
+    
+    loadImgList( srcList ).then( ( imgList ) => {
+    
+        const slideshow = new GLSlideshow(
+            mediaQueryList.matches ? srcListS : srcListL,
+            {
+                canvas: document.getElementById( 'myCanvas' ),
+                width: mediaQueryList.matches ? 375 : 1024,
+                height: mediaQueryList.matches ? 300 : 576,
+                effect: 'crossZoom',
+            }
+        );
+    
+        mediaQueryList.addEventListener( 'change', () => {
+    
+            const isSmallScreen = mediaQueryList.matches;
+            const srcList = mediaQueryList.matches ? srcListS : srcListL;
+            const width = isSmallScreen ? 375 : 1024;
+            const height = isSmallScreen ? 300 : 576;
+    
+            loadImgList( srcList ).then( ( imgList ) => {
+    
+                slideshow.replace( imgList );
+                slideshow.setSize( width, height );
+                slideshow.updateAspect();
+    
+            } );
+    
+        } );
+    
+    } );
+    
+    
+    function loadImgList( srcList ) {
+    
+        return new Promise( ( resolve ) => {
+    
+            Promise.all( srcList.map( ( src ) => loadImg( src ) ) ).then( ( imgList ) => {
+    
+                resolve( imgList );
+    
+            } );
+    
+        } );
+    
+    }
+    
+    
+    function loadImg( src ) {
+    
+        return new Promise( ( resolve ) => {
+    
+            const $img = new Image();
+            const onLoad = () => {
+    
+                $img.removeEventListener( 'load', onLoad );
+                resolve( $img );
+    
+            };
+            $img.addEventListener( 'load', onLoad );
+            $img.src = src;
+    
+        } );
+    
+    }
+    </script>
+
+
+
+</div>
+
+
+
+
+
+
+
+
