@@ -141,6 +141,18 @@ nav ul li:hover{
 
 }
 
+
+.wd-text-klein{
+    color:rgb(18, 18, 19);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 18px;
+    text-align: center;	
+    text-shadow: -1px -1px 9px rgb(46, 108, 190);
+
+}
+
+
+
 /* 3 Bilder Center */
 .pip{
     box-shadow: 1px 1px 1px #ffffff,
@@ -168,12 +180,64 @@ nav ul li:hover{
     font-size: 30px;
   }
 
+.wd-container{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    
+    margin:150px 150px 50px;
+    padding-right: 550px;
 
+}
+
+
+.wd-foto-container{
+    
+    
+    margin: 550px;
+}
+
+.wd-text-gross{
+    color:rgb(95, 176, 241);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    text-align: center;	
+    text-shadow: -1px -1px 3px rgb(83, 83, 83);
+}
 
 
 
 
 @media screen and (max-width: 800px){
+
+
+    .wd-text-klein{
+        .text-klein{
+            color:rgb(18, 18, 19);
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-size: 14px;
+            
+            text-shadow: -1px -1px 9px rgb(46, 108, 190);
+        
+        }
+    }
+
+
+    .wd-text-gross{
+        font-size: 28px;
+    font-weight: 300;
+
+    }
+
+    .wd-container{
+        margin:110px;
+        margin-right: 350px;
+        margin-left: 10px;
+    }
+
+
     nav ul{
         opacity: 0;
         display: none;
